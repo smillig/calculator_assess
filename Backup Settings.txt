@@ -1,0 +1,82 @@
+c_cpp_properties.json:{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}\\core\\**",
+                "${workspaceFolder}\\ui\\**",
+                "${workspaceFolder}\\utils\\**",
+                "C:\\Users\\%USERNAME%\\Documents\\cpp\\downloaded libraries\\SFML-3.0.2\\include\\**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "cl.exe",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}
+launch.json:{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "cl.exe - Build and debug active file",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}\\build\\calculator.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "${env:PATH};C:\\Users\\%USERNAME%\\Documents\\cpp\\downloaded libraries\\SFML-3.0.2\\bin"
+                }
+            ],
+            "externalConsole": false,
+            "preLaunchTask": "C/C++: cl.exe build active file"
+        }
+    ]
+}
+tasks.json:{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build active file",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/std:c++20",
+                "/nologo",
+                "/Fe${workspaceFolder}\\build\\calculator.exe",
+                "${workspaceFolder}\\*.cpp",
+                "${workspaceFolder}\\core\\*.cpp",
+                "${workspaceFolder}\\ui\\*.cpp",
+                "/I",
+                "C:\\Users\\%USERNAME%\\Documents\\cpp\\downloaded libraries\\SFML-3.0.2\\include",
+                "/link",
+                "/LIBPATH:C:\\Users\\%USERNAME%\\Documents\\cpp\\downloaded libraries\\SFML-3.0.2\\lib",
+                "sfml-graphics.lib",
+                "sfml-window.lib",
+                "sfml-system.lib"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "MSVC Compiler task for SFML project"
+        }
+    ]
+}
